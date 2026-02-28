@@ -23,21 +23,26 @@ function App(){
   
   let [projectIndex,setProjectIndex] = useState(0);
   function updateIndex(){
+    if(projectIndex < projectIdeas.length){
   
-      setProjectIndex(projectIndex +1);
-  
+      setProjectIndex(projectIndex +1);}
+   
   }
   return(
     <>
     <h1 className="text-4xl font-bold text-blue-500">Ship it or Skip it</h1>
     <div className ="card p-8  bg-white max-w-md border border-gray-500 rounded-lg" >
-
+  {projectIndex < projectIdeas.length?(
+    <>
   <p>Would you like to make a {projectIdeas[projectIndex]} ?</p>
    <Button onClick={updateShippedList}>Ship it</Button>
    <Button onClick={updateIndex} >Skip it</Button>
-   {console.log(shippedList)};
-
+   </>
+  ):(
+    <p>You're Done!</p>
+  )}
    </div>
+   {shippedList.map(idea =>(<p key={idea}>{idea}</p>))}
   
     </>
   )
