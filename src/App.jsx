@@ -6,12 +6,21 @@ const projectIdeas = [
   'Tic-tac-toe',
   'rock-paper-scissors'
 ]
+let shippedList =[];
+
 function Button({children,onClick}){
   return <button onClick={onClick} className="text-arial border rounded-sm w-24 h-10 m-4 p-2 bg-gray-200">
     {children}</button>
 
 }
 function App(){
+  let [shippedList,setShippedList]=useState([])
+  function updateShippedList(){
+    setShippedList([...shippedList,projectIdeas[projectIndex]]);
+    updateIndex();
+
+  }
+  
   let [projectIndex,setProjectIndex] = useState(0);
   function updateIndex(){
   
@@ -24,8 +33,9 @@ function App(){
     <div className ="card p-8  bg-white max-w-md border border-gray-500 rounded-lg" >
 
   <p>Would you like to make a {projectIdeas[projectIndex]} ?</p>
-   <Button>Ship it</Button>
+   <Button onClick={updateShippedList}>Ship it</Button>
    <Button onClick={updateIndex} >Skip it</Button>
+   {console.log(shippedList)};
 
    </div>
   
