@@ -9,7 +9,13 @@ const projectIdeas = [
 let shippedList =[];
 
 function Button({children,onClick}){
-  return <button onClick={onClick} className="text-arial border rounded-sm w-24 h-10 m-4 p-2 bg-gray-200">
+  return <button onClick={onClick} className="mt-12 rounded-xl 
+ml-4 mr-8
+  bg-emerald-500 hover:bg-emerald-600 
+text-white font-medium 
+transition-all duration-200 
+hover:scale-105 active:scale-95
+p-5">
     {children}</button>
 
 }
@@ -29,12 +35,14 @@ function App(){
    
   }
   return(
-    <>
-    <h1 className="text-4xl font-bold text-blue-500">Ship it or Skip it</h1>
-    <div className ="card p-8  bg-white max-w-md border border-gray-500 rounded-lg" >
+    <div className="min-h-screen flex flex-col items-center pt-20 
+bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+
+    <h1 className="text-4xl font-bold text-blue-500 mb-18">Ship it or Skip it</h1>
+    <div className ="card text-center p-8  bg-white max-w-md h-57 border border-gray-500 rounded-lg" >
   {projectIndex < projectIdeas.length?(
     <>
-  <p>Would you like to make a {projectIdeas[projectIndex]} ?</p>
+  <p className="mt-4">Would you like to make a {projectIdeas[projectIndex]} ?</p>
    <Button onClick={updateShippedList}>Ship it</Button>
    <Button onClick={updateIndex} >Skip it</Button>
    </>
@@ -42,9 +50,10 @@ function App(){
     <p>You're Done!</p>
   )}
    </div>
+   
    {shippedList.map(idea =>(<p key={idea}>{idea}</p>))}
   
-    </>
+    </div>
   )
 }
 export default App
