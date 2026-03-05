@@ -20,4 +20,4 @@ A fun React app that helps you decide which project ideas to build next.
 - Tailwind CSS utility classes
 
 ## Live Demo
-[
+[https://ship-it-eta.vercel.app/]
